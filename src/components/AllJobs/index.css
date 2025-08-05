@@ -1,0 +1,189 @@
+.allJobs-con {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #000000;
+  flex-grow: 1;
+  padding: 40px;
+}
+.SideBar-container {
+  width: 25%;
+}
+.line {
+  border: 2px solid grey;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.jobs-container {
+  width: 100%;
+}
+.search-element {
+  background-color: transparent;
+  border: 2px solid grey;
+  font-size: 20px;
+  color: #ffffff;
+  width: 50%;
+  height: 40px;
+  padding-left: 20px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.btn {
+  width: 40px;
+  height: 50px;
+  cursor: pointer;
+  background-color: #202020;
+  border: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.failure-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  padding-bottom: 45px;
+  flex-grow: 1;
+}
+.img {
+  width: 250px;
+  height: 250px;
+}
+.failure-heading {
+  color: #ffffff;
+  font-size: 30px;
+  font-family: Roboto;
+  font-weight: 700;
+}
+.failure-para {
+  color: #64748b;
+  font-size: 25px;
+  font-family: Roboto;
+  font-weight: 300;
+}
+.retry-button {
+  background-color: #6366f1;
+  color: #ffffff;
+  font-size: 25px;
+  font-family: Roboto;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 12px;
+  margin: 10px;
+}
+.products-loader-container {
+  font-size: 25px;
+}
+
+.no-job-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+.no-job-img {
+  color: #ffffff;
+  font-size: 25px;
+  font-family: Roboto;
+  font-weight: 600;
+}
+.heading {
+  color: #ffffff;
+  font-size: 25px;
+  font-family: Roboto;
+  font-weight: 500;
+}
+
+.failure-btn-con {
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.failure-btn {
+  background-color: #6366f1;
+  color: #ffffff;
+  font-size: 25px;
+  font-family: Roboto;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 12px;
+  margin: 10px;
+}
+
+.profile-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 10px;
+  background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
+  border-radius: 12px;
+  margin: 5px;
+}
+
+.profile-icon {
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+}
+
+.profile-name {
+  color: #b6c5ff;
+  font-size: 25px;
+  font-family: Roboto;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.profile-bio {
+  color: #64748b;
+  font-size: 20px;
+  font-family: Roboto;
+  margin-top: 0px;
+}
+
+.employee-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: transparent;
+}
+
+.list-item {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  margin: 5px;
+}
+
+.check-box {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+  margin-bottom: 0;
+}
+
+.label {
+  color: #ffffff;
+  font-size: 20px;
+  font-family: Roboto;
+  margin-top: 0px;
+}

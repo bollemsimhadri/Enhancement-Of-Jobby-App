@@ -1,0 +1,108 @@
+.item-card {
+  background-color: #7e858e;
+  border-radius: 12px;
+  margin: 12px;
+}
+
+.header-con {
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px;
+}
+.logo {
+  height: 30px;
+  width: 30px;
+  border-radius: 12px;
+}
+.title-rating-con {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  color: #ffffff;
+  font-size: 25px;
+  font-family: Roboto;
+  margin-bottom: 3px;
+  font-weight: 600;
+}
+.rating-con {
+  display: flex;
+}
+
+.start-icon {
+  color: #f2f526;
+  width: 15px;
+  height: 15px;
+  margin-top: 0;
+}
+.rating {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: Roboto;
+  margin-bottom: 0px;
+}
+
+.package {
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 500;
+  font-family: Roboto;
+  margin: 8px;
+}
+.employee-type {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 300;
+  font-family: Roboto;
+  margin: 8px;
+}
+.location {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 300;
+  font-family: Roboto;
+  margin: 8px;
+}
+
+.icon {
+  color: #ffffff;
+  height: 18px;
+  width: 18px;
+}
+.icon-con {
+  display: flex;
+  margin: 3px;
+}
+.middle-con {
+  display: flex;
+  justify-content: space-between;
+}
+.line {
+  color: 2px solid #64748b;
+  margin: 10px;
+  border-radius: 12px;
+}
+.Description {
+  color: #ffffff;
+  font-size: 22px;
+  font-family: Roboto;
+  margin-bottom: 5px;
+  font-weight: 400;
+}
+
+.Description-para {
+  color: #ffffff;
+  font-size: 20px;
+  font-family: Roboto;
+  margin-bottom: 5px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+.Description-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 10px;
+}

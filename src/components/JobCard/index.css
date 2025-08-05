@@ -1,0 +1,134 @@
+.item-card {
+  background-color: #202020;
+  border-radius: 12px;
+  margin: 12px;
+}
+
+.header-con {
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px;
+}
+.logo {
+  height: 50px;
+  width: 50px;
+  border-radius: 8px;
+  margin: 8px;
+  margin-bottom: 0px;
+  margin-top: 15px;
+}
+.li {
+  list-style-type: none;
+}
+.title-rating-con {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2px;
+  margin-top: 0px;
+}
+.title {
+  color: #ffffff;
+  font-size: 25px;
+  font-family: Roboto;
+  margin-bottom: 3px;
+  font-weight: 600;
+}
+.rating-con {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.start-icon {
+  color: #f2f526;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  margin-bottom: 0px;
+}
+.rating {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: Roboto;
+  margin-top: 6px;
+  margin-bottom: 0px;
+}
+
+.package {
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 500;
+  font-family: Roboto;
+  margin: 8px;
+  margin-right: 20px;
+}
+.employee-type {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 300;
+  font-family: Roboto;
+  margin: 8px;
+}
+.location {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 300;
+  font-family: Roboto;
+  margin: 8px;
+  margin-top: 6px;
+  margin-bottom: 0px;
+}
+
+.icon {
+  color: #ffffff;
+  height: 24px;
+  width: 24px;
+  margin-bottom: 0px;
+  margin-top: 8px;
+}
+.icon-con {
+  display: flex;
+  margin: 8px;
+  margin-left: 20px;
+}
+.middle-con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.line {
+  color: 2px solid #7e858e;
+  width: 100%;
+}
+.Description {
+  color: #ffffff;
+  font-size: 22px;
+  font-family: Roboto;
+  margin-bottom: 3px;
+  font-weight: 600;
+}
+
+.Description-para {
+  color: #ffffff;
+  font-size: 20px;
+  font-family: Roboto;
+  margin-bottom: 40px;
+  line-height: 1.2;
+  margin-top: 8px;
+  font-weight: 300;
+}
+.Description-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 0px;
+  margin-bottom: 8px;
+}
+
+.nav-link {
+  text-decoration: none;
+}

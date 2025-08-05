@@ -1,0 +1,107 @@
+.FilterGroup-container {
+  margin-top: 16px;
+}
+@media screen and (min-width: 768px) {
+  .FilterGroup-container {
+    width: 30%;
+    max-width: 300px;
+    min-width: 240px;
+    margin-top: 50px;
+    flex-shrink: 0;
+  }
+  .profile {
+    display: none;
+  }
+}
+
+.salary-list-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: transparent;
+}
+
+.list-item {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  margin: 5px;
+}
+
+.check-box {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+  margin-bottom: 0;
+}
+
+.label {
+  color: #ffffff;
+  font-size: 20px;
+  font-family: Roboto;
+  margin-top: 0px;
+}
+.heading {
+  color: #ffffff;
+  font-size: 25px;
+  font-family: Roboto;
+  font-weight: 500;
+}
+.line {
+  border: 2px solid grey;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.search-element {
+  background-color: transparent;
+  font-size: 20px;
+  color: #ffffff;
+  font-family: Roboto;
+  font-weight: 500;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: none;
+  outline: none;
+  flex-grow: 1;
+}
+.btn {
+  width: 40px;
+  height: 50px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 10px 20px;
+  margin: 0px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.input-search-con {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #7e858e;
+}
+.salary-con {
+  display: flex;
+  flex-direction: column;
+}
+.search-icon {
+  background-color: transparent;
+  color: #ffffff;
+  margin-right: 130px;
+}
+@media screen and (min-width: 768px) {
+  .input-search-con {
+    display: none;
+  }
+}

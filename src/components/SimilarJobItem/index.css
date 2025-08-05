@@ -1,0 +1,93 @@
+.similar-job-item-1 {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  background-color: #202020;
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 10px;
+  margin-bottom: 23px;
+}
+@meadia screen and(min-width:768px) {
+  .similar-job-item-1 {
+    width: 350px;
+  }
+  .item-card {
+    margin-top: 30px;
+  }
+}
+
+.item-card {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.header-con {
+  display: flex;
+  align-items: center;
+}
+.sim-img {
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+}
+.title-rating-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.title {
+  font-family: Roboto;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+}
+.rating-con {
+  display: flex;
+  align-items: center;
+  padding-top: 0px;
+}
+.start-icon {
+  color: #fbbf24;
+  font-size: 20px;
+  margin-right: 12px;
+}
+.rating {
+  font-family: Roboto;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+}
+.middle-con {
+  display: flex;
+  flex-direction: row;
+}
+.icon-con {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+.icon {
+  color: #ffffff;
+  font-size: 20px;
+  margin-right: 6px;
+}
+
+.location {
+  font-family: Roboto;
+  font-size: 16px;
+  color: #ffffff;
+}
+.Description {
+  font-family: Roboto;
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 500;
+}
+.Description-para {
+  font-family: Roboto;
+  font-size: 20px;
+  color: #ffffff;
+  line-height: 1.6;
+}
