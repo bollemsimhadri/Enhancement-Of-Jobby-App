@@ -9,48 +9,32 @@ import FiltersGroup from '../FiltersGroup'
 import './index.css'
 
 const apiStatusContent = {
-  initial: 'INISTIAL',
+  initial: 'INITIAL',
   success: 'SUCCESS',
   failure: 'FAILURE',
   inProgress: 'IN_PROGRESS',
 }
 
 const employmentTypesList = [
-  {
-    label: 'Full Time',
-    employmentTypeId: 'FULLTIME',
-  },
-  {
-    label: 'Part Time',
-    employmentTypeId: 'PARTTIME',
-  },
-  {
-    label: 'Freelance',
-    employmentTypeId: 'FREELANCE',
-  },
-  {
-    label: 'Internship',
-    employmentTypeId: 'INTERNSHIP',
-  },
+  {label: 'Full Time', employmentTypeId: 'FULLTIME'},
+  {label: 'Part Time', employmentTypeId: 'PARTTIME'},
+  {label: 'Freelance', employmentTypeId: 'FREELANCE'},
+  {label: 'Internship', employmentTypeId: 'INTERNSHIP'},
 ]
 
 const salaryRangesList = [
-  {
-    salaryRangeId: '1000000',
-    label: '10 LPA and above',
-  },
-  {
-    salaryRangeId: '2000000',
-    label: '20 LPA and above',
-  },
-  {
-    salaryRangeId: '3000000',
-    label: '30 LPA and above',
-  },
-  {
-    salaryRangeId: '4000000',
-    label: '40 LPA and above',
-  },
+  {salaryRangeId: '1000000', label: '10 LPA and above'},
+  {salaryRangeId: '2000000', label: '20 LPA and above'},
+  {salaryRangeId: '3000000', label: '30 LPA and above'},
+  {salaryRangeId: '4000000', label: '40 LPA and above'},
+]
+
+const locationList = [
+  {cityId: 'Hyderabad', label: 'Hyderabad'},
+  {cityId: 'Bangalore', label: 'Bangalore'},
+  {cityId: 'Chennai', label: 'Chennai'},
+  {cityId: 'Delhi', label: 'Delhi'},
+  {cityId: 'Mumbai', label: 'Mumbai'},
 ]
 
 const noJobs = 'https://assets.ccbp.in/frontend/react-js/no-jobs-img.png'
@@ -59,9 +43,10 @@ class Jobs extends Component {
   state = {
     jobsList: [],
     employeeType: [],
+    locationType: [],
     apistatus: apiStatusContent.initial,
     searchInput: '',
-    minimumSalary: 0,
+    minimumSalary: '',
   }
 
   componentDidMount() {
@@ -69,9 +54,8 @@ class Jobs extends Component {
   }
 
   getJobs = async () => {
-    this.setState({
-      apistatus: apiStatusContent.inProgress,
-    })
+    this.setState({apistatus: apiStatusContent.inProgress})
+
     const {searchInput, minimumSalary, employeeType} = this.state
 
     const url = `https://apis.ccbp.in/jobs?employment_type=${employeeType.join(
@@ -79,49 +63,77 @@ class Jobs extends Component {
     )}&search=${searchInput}&minimum_package=${minimumSalary}`
 
     const jwtToken = Cookies.get('jwt_token')
-
     const options = {
-      headers: {
-        Authorization: `Bearer ${jwtToken}`,
-      },
+      headers: {Authorization: `Bearer ${jwtToken}`},
       method: 'GET',
     }
+
     const response = await fetch(url, options)
     if (response.ok) {
       const data = await response.json()
-      const newjobdata = data.jobs.map(item => ({
-        companyLogo: item.company_logo_url,
-        employmentType: item.employment_type,
-        id: item.id,
-        jobDescription: item.job_description,
-        location: item.location,
-        packagePerAnnum: item.package_per_annum,
-        rating: item.rating,
-        title: item.title,
+      const formattedJobs = data.jobs.map(job => ({
+        companyLogo: job.company_logo_url,
+        employmentType: job.employment_type,
+        id: job.id,
+        jobDescription: job.job_description,
+        location: job.location,
+        packagePerAnnum: job.package_per_annum,
+        rating: job.rating,
+        title: job.title,
       }))
       this.setState({
-        jobsList: newjobdata,
+        jobsList: formattedJobs,
         apistatus: apiStatusContent.success,
       })
     } else {
-      this.setState({
-        apistatus: apiStatusContent.failure,
-      })
+      this.setState({apistatus: apiStatusContent.failure})
     }
   }
 
-  renderJobsSuccess = () => {
-    const {jobsList} = this.state
-    const nojobs = jobsList.length > 0
+  changeSearchInput = event => {
+    this.setState({searchInput: event.target.value})
+  }
 
-    return nojobs ? (
-      <div>
-        <ul>
-          {jobsList.map(eachitem => (
-            <JobCard key={eachitem.id} eachitem={eachitem} />
-          ))}
-        </ul>
-      </div>
+  onEnterSearchInput = event => {
+    if (event.key === 'Enter') this.getJobs()
+  }
+
+  changeSalary = salary => {
+    this.setState({minimumSalary: salary}, this.getJobs)
+  }
+
+  changeEmployeeList = type => {
+    this.setState(prevState => {
+      const updated = prevState.employeeType.includes(type)
+        ? prevState.employeeType.filter(t => t !== type)
+        : [...prevState.employeeType, type]
+      return {employeeType: updated}
+    }, this.getJobs)
+  }
+
+  changeLocationList = city => {
+    this.setState(prevState => {
+      const updated = prevState.locationType.includes(city)
+        ? prevState.locationType.filter(c => c !== city)
+        : [...prevState.locationType, city]
+      return {locationType: updated}
+    }, this.getJobs)
+  }
+
+  renderJobsSuccess = () => {
+    const {jobsList, locationType} = this.state
+
+    const filteredJobs =
+      locationType.length === 0
+        ? jobsList
+        : jobsList.filter(job => locationType.includes(job.location))
+
+    return filteredJobs.length > 0 ? (
+      <ul>
+        {filteredJobs.map(job => (
+          <JobCard key={job.id} eachitem={job} />
+        ))}
+      </ul>
     ) : (
       <div className="no-job-con">
         <img src={noJobs} alt="no jobs" className="no-job-img" />
@@ -144,12 +156,7 @@ class Jobs extends Component {
       <p className="failure-para">
         We cannot seem to find the page you are looking for
       </p>
-      <button
-        type="button"
-        className="retry-button"
-        data-testid="button"
-        onClick={this.getJobs}
-      >
+      <button type="button" className="retry-button" onClick={this.getJobs}>
         Retry
       </button>
     </div>
@@ -163,7 +170,6 @@ class Jobs extends Component {
 
   renderAllJobs = () => {
     const {apistatus} = this.state
-
     switch (apistatus) {
       case apiStatusContent.success:
         return this.renderJobsSuccess()
@@ -176,29 +182,8 @@ class Jobs extends Component {
     }
   }
 
-  changeSearchInput = event => {
-    this.setState({searchInput: event.target.value})
-  }
-
-  onEnterSearchInput = event => {
-    if (event.key === 'Enter') {
-      this.getJobs()
-    }
-  }
-
-  changeSalary = salary => {
-    this.setState({minimumSalary: salary}, this.getJobs)
-  }
-
-  changeEmployeeList = type => {
-    this.setState(
-      prevState => ({employeeType: [...prevState.employeeType, type]}),
-      this.getJobs,
-    )
-  }
-
   render() {
-    const {searchInput} = this.state
+    const {searchInput, locationType, employeeType} = this.state
     return (
       <>
         <Header />
@@ -207,11 +192,15 @@ class Jobs extends Component {
             <FiltersGroup
               employmentTypesList={employmentTypesList}
               salaryRangesList={salaryRangesList}
+              locationList={locationList}
               searchInput={searchInput}
               changeSearchInput={this.changeSearchInput}
               getJobs={this.getJobs}
               changeSalary={this.changeSalary}
               changeEmployeeList={this.changeEmployeeList}
+              changeLocationList={this.changeLocationList}
+              locationType={locationType}
+              employeeType={employeeType}
             />
             <div className="search-jobs-con">
               <div className="search-con">
@@ -239,4 +228,5 @@ class Jobs extends Component {
     )
   }
 }
+
 export default Jobs
