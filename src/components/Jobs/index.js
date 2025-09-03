@@ -217,7 +217,7 @@ class Jobs extends Component {
                   data-testid="searchButton"
                   onClick={this.getJobs}
                 >
-                  <BsSearch size="30" className="search-icon" />
+                  <BsSearch size={260} style={{color: 'yellow'}} />
                 </button>
               </div>
               {this.renderAllJobs()}
